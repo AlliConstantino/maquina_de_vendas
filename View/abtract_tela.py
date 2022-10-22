@@ -23,3 +23,6 @@ class AbstractTela(ABC):
         print("0 - Retornar")
         opcao = self.le_num_inteiro('Escolha a opcao: ', [1, 2, 3, 0])
         return opcao
+
+    def mostra_msg(self, msg):
+        print(msg)
