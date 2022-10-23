@@ -19,11 +19,3 @@ class ControladorMaquina:
     @property
     def historico(self):
         return self.__historico
-
-# ITENS ABAIXO SÓ PARA TESTE
-
-    def teste(self):
-        self.__controlador_adm.opcoes_administrador()
-
-    def teste2(self):
-        self.__controlador_adm.novo_administrador()
