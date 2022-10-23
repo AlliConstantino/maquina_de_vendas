@@ -1,5 +1,5 @@
 class Administrador:
-    def __int__(self, nome, codigo, senha):
+    def __init__(self, nome, codigo, senha):
         self.__nome = nome
         self.__codigo = codigo
         self.__senha = senha

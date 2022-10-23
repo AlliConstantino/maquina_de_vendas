@@ -1,4 +1,4 @@
-from Model.maquina import Maquina
+from Controller.controlador_administrador import ControladorAdministrador
 
 
 class ControladorMaquina:
@@ -6,6 +6,7 @@ class ControladorMaquina:
         self.__administradores = {}
         self.__produtos = {}
         self.__historico = {}
+        self.__controlador_adm = ControladorAdministrador(self)
 
     @property
     def administradores(self):
@@ -18,3 +19,18 @@ class ControladorMaquina:
     @property
     def historico(self):
         return self.__historico
+
+# ITENS ABAIXO SÓ PARA TESTE
+
+    def teste(self):
+        self.__controlador_adm.listar_administradores()
+
+    def teste2(self):
+        self.__controlador_adm.novo_administrador()
+
+
+c = ControladorMaquina()
+c.teste2()
+c.teste()
+c.teste2()
+c.teste()
