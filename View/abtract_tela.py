@@ -1,4 +1,4 @@
-from abc import ABC
+from abc import ABC, abstractclassmethod
 
 
 class AbstractTela(ABC):
@@ -15,14 +15,13 @@ class AbstractTela(ABC):
                 if inteiros_validos:
                     print('Valores válidos: ', inteiros_validos)
 
+
     def tela_opcoes(self):
-        print("Escolha a opcao")
+        print("Escolha a opção")
         print("1 - Novo")
         print("2 - Excluir")
         print('3 - Listar')
         print("0 - Retornar")
-        opcao = self.le_num_inteiro('Escolha a opcao: ', [1, 2, 3, 0])
-        return opcao
 
     def mostra_msg(self, msg):
         print(msg)
