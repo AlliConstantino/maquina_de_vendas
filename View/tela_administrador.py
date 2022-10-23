@@ -5,6 +5,8 @@ class TelaAdministrador(AbstractTela):
     def opcoes_administrador(self):
         print('-' * 10, 'Administrador', '-' * 10)
         self.tela_opcoes()
+        op = self.le_num_inteiro('Opção: ', [0, 1, 2, 3, 4])
+        return op
 
     def novo_adm(self):
         print('-' * 10, 'Novo administrador', '-' * 10)
@@ -19,5 +21,5 @@ class TelaAdministrador(AbstractTela):
 
     def mostra_adm(self, nome: str, codigo: int):
         print(10 * '-')
-        print(nome)
-        print(codigo)
+        print('Nome: ', nome)
+        print('Código: ', codigo)

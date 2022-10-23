@@ -3,9 +3,9 @@ from Controller.controlador_administrador import ControladorAdministrador
 
 class ControladorMaquina:
     def __init__(self):
-        self.__administradores = {}
-        self.__produtos = {}
-        self.__historico = {}
+        self.__administradores = []
+        self.__produtos = []
+        self.__historico = []
         self.__controlador_adm = ControladorAdministrador(self)
 
     @property
@@ -23,14 +23,7 @@ class ControladorMaquina:
 # ITENS ABAIXO SÓ PARA TESTE
 
     def teste(self):
-        self.__controlador_adm.listar_administradores()
+        self.__controlador_adm.opcoes_administrador()
 
     def teste2(self):
         self.__controlador_adm.novo_administrador()
-
-
-c = ControladorMaquina()
-c.teste2()
-c.teste()
-c.teste2()
-c.teste()

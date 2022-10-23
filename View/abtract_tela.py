@@ -1,4 +1,4 @@
-from abc import ABC, abstractclassmethod
+from abc import ABC
 
 
 class AbstractTela(ABC):
@@ -25,3 +25,11 @@ class AbstractTela(ABC):
 
     def mostra_msg(self, msg):
         print(msg)
+
+    def pega_codigo(self):
+        while True:
+            try:
+                cod = int(input('Insira o código: '))
+                return cod
+            except ValueError:
+                print('Valor inválido!')
