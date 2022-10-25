@@ -1,9 +1,8 @@
-class Produto:
+class Bebida:
     def __int__(self,nome: str, codigo, preco: float , quantidade: int, tipo: str):
         self.__nome = nome
         self.__codigo = codigo
         self.__quantidade = quantidade
-        self.__tipo = tipo
 
 
 
@@ -45,6 +44,3 @@ class Produto:
         def quantidade(self, quantidade: int):
             self.__quantidade = quantidade
 
-        @tipo.setter
-        def tipo(self, tipo: str):
-            self.__tipo = tipo
