@@ -16,6 +16,8 @@ class ControladorAdministrador:
                 self.excluir_administrador()
             elif op == 3:
                 self.listar_administradores()
+            elif op == 4:
+                self.alterar_adm()
             elif op == 0:
                 break
 
@@ -24,20 +26,27 @@ class ControladorAdministrador:
         novo_adm = Administrador(dados_adm['nome'],
                                  dados_adm['codigo'],
                                  dados_adm['senha'])
+        flag = False
         for admin in self.__controlador_maq.administradores:
             if admin.codigo == novo_adm.codigo:
                 self.__tela_adm.mostra_msg('Administrador já existe!')
-                self.opcoes_administrador()
-        else:
+                flag = True
+        if flag is False:
             self.__controlador_maq.administradores.append(novo_adm)
-            self.opcoes_administrador()
 
     def excluir_administrador(self):
-        cod = self.__tela_adm.pega_codigo()
-        for adm in self.__controlador_maq.administradores:
-            if adm.codigo == cod:
-                self.__controlador_maq.administradores.remove(adm)
-                self.listar_administradores()
+        if len(self.__controlador_maq.administradores) >= 1:
+            self.listar_administradores()
+            cod = self.__tela_adm.pega_codigo()
+            flag = True
+            for adm in self.__controlador_maq.administradores:
+                if adm.codigo == cod:
+                    self.__controlador_maq.administradores.remove(adm)
+                    flag = False
+            if flag is True:
+                self.__tela_adm.mostra_msg('Administrador não encontrado!')
+        else:
+            self.__tela_adm.mostra_msg('Lista vazia.')
 
     def listar_administradores(self):
         if len(self.__controlador_maq.administradores) == 0:
@@ -45,3 +54,18 @@ class ControladorAdministrador:
         else:
             for adm in self.__controlador_maq.administradores:
                 self.__tela_adm.mostra_adm(adm.nome, adm.codigo)
+
+    def alterar_adm(self):
+        self.__tela_adm.mostra_msg('Quem deseja alterar?')
+        self.listar_administradores()
+        cod = self.__tela_adm.pega_codigo()
+        flag = False
+        for adm in self.__controlador_maq.administradores:
+            if adm.codigo == cod:
+                novos_dados = self.__tela_adm.pega_dados()
+                adm.codigo = novos_dados['codigo']
+                adm.nome = novos_dados['nome']
+                adm.senha = novos_dados['senha']
+                flag = True
+        if flag is False:
+            self.__tela_adm.mostra_msg('Código inexistente.')

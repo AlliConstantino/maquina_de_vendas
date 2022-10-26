@@ -19,3 +19,9 @@ class ControladorMaquina:
     @property
     def historico(self):
         return self.__historico
+
+    def teste(self):
+        self.__controlador_adm.opcoes_administrador()
+
+c = ControladorMaquina()
+c.teste()

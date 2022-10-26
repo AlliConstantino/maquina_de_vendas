@@ -10,6 +10,15 @@ class TelaAdministrador(AbstractTela):
 
     def novo_adm(self):
         print('-' * 10, 'Novo administrador', '-' * 10)
+        dados = self.pega_dados()
+        return dados
+
+    def mostra_adm(self, nome: str, codigo: int):
+        print(10 * '-')
+        print('Nome: ', nome)
+        print('Código: ', codigo)
+
+    def pega_dados(self):
         nome = input('Nome: ')
         senha = input('Senha: ')
         while True:
@@ -18,8 +27,3 @@ class TelaAdministrador(AbstractTela):
                 return {'nome': nome, 'senha': senha, 'codigo': codigo}
             except ValueError:
                 print('Valor inválido!')
-
-    def mostra_adm(self, nome: str, codigo: int):
-        print(10 * '-')
-        print('Nome: ', nome)
-        print('Código: ', codigo)
