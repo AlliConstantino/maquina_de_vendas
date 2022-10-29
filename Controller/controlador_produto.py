@@ -7,6 +7,8 @@ class ControladorProduto:
         self.__tela_produto = Telaproduto() #cria uma nova tela
         self.__controlador_produto = controlador_produto
 
+    # Coloca o nome só como opcoes_produto
+
     def opcoes_administrador_produto(self):
         while True:
             op = self.__tela_produto.opcoes_produto()

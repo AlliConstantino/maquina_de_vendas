@@ -21,7 +21,7 @@ class AbstractTela(ABC):
         print("2 - Excluir")
         print('3 - Listar')
         print('4 - Alterar')
-        print("0 - Retornar")
+        print("0 - Voltar")
 
     def mostra_msg(self, msg):
         print(msg)
