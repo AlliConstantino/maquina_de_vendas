@@ -15,7 +15,6 @@ class AbstractTela(ABC):
                 if inteiros_validos:
                     print('Valores válidos: ', inteiros_validos)
 
-
     def tela_opcoes(self):
         print("Escolha a opção")
         print("1 - Novo")
