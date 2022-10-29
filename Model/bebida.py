@@ -3,6 +3,7 @@ class Bebida:
         self.__nome = nome
         self.__codigo = codigo
         self.__quantidade = quantidade
+        self.__tipo = tipo
 
 
 
@@ -43,4 +44,8 @@ class Bebida:
         @quantidade.setter
         def quantidade(self, quantidade: int):
             self.__quantidade = quantidade
+
+        @tipo.setter
+        def tipo(self, tipo:str):
+            self.__tipo = bebida
 
