@@ -24,7 +24,8 @@ class ControladorProduto:
 
     def novo_produto(self):
         dados_produto = self.__tela_produto.novo_produto()
-        novo_produto = Produto(dados_produto['nome'],dados_produto['codigo'],dados_produto['tipo'], dados_produto['quantidade'])
+        novo_produto = Produto(dados_produto['nome'],dados_produto['codigo'], dados_produto['preco'],
+                               dados_produto['quantidade'], dados_produto['tipo'])
         for produto in self.__controlador_maquina.produtos:
             if produto.codigo == novo_produto.codigo:
                 self.__tela_produto.mostra_msg('Produto já existe!')

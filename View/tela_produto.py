@@ -13,9 +13,11 @@ class TelaProduto(AbstractTela):
     def novo_produto(self):
         print('-------------', 'Novo Produto', '---------------')
         nome = input('Coloque o nome do produto: ')
-        codigo =  input('Coloque o codigo do produto: ')
+        codigo = input('Coloque o codigo do produto: ')
         preco = input('Coloque o preço do produto: ')
-        quantidade = input('Coloque a quantidade do produto')
+        quantidade = input('Coloque a quantidade do produto: ')
+        tipo = input('Coloque o tipo do produto: ')
+        return {'nome': nome, 'codigo': codigo, 'preco': preco, 'quantidade': quantidade, 'tipo': tipo}
 
     def mostra_produto(self, nome: str, codigo: int, preco: float, quantidade: int):
         print(print('-------------', 'Produtos', '---------------'))

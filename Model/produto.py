@@ -1,8 +1,9 @@
 class Produto:
-    def __int__(self, nome: str, codigo, preco: float, quantidade: int, tipo: str):
+    def __init__(self, nome: str, codigo, preco: float, quantidade: int, tipo: str):
         self.__nome = nome
         self.__codigo = codigo
         self.__quantidade = quantidade
+        self.__preco = preco
         self.__tipo = tipo
 
 

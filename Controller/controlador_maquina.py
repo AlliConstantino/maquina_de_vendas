@@ -30,7 +30,7 @@ class ControladorMaquina:
         while True:
             x = self.__tela_maq.opcoes_maq()
             if x == 1:
-                pass  # self.vendas()
+                self.vendas()
             elif x == 2:
                 self.opcoes_gerencia()
             elif x == 0:
@@ -56,8 +56,6 @@ class ControladorMaquina:
     def iniciar(self):
         self.opcoes_maquina()
 
-
-'''
     def vendas(self):
         while True:
             self.__controlador_prod.listar_produtos()
@@ -69,4 +67,3 @@ class ControladorMaquina:
                 for i in self.__produtos:
                     if i.codigo == cod:
                         i.quantidade -= 1
-'''
