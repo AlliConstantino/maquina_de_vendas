@@ -10,7 +10,7 @@ class ControladorMaquina:
         self.__produtos = []
         self.__historico = []
         self.__controlador_adm = ControladorAdministrador(self)
-        # self.__controlador_prod = ControladorProduto(self) TODO
+        self.__controlador_prod = ControladorProduto(self)
         self.__tela_maq = TelaMaquina()
         self.__tela_gerencia = TelaGerencia()
 
@@ -30,7 +30,7 @@ class ControladorMaquina:
         while True:
             x = self.__tela_maq.opcoes_maq()
             if x == 1:
-                pass  # Falta Tela Vendas TODO
+                pass  # self.vendas()
             elif x == 2:
                 self.opcoes_gerencia()
             elif x == 0:
@@ -44,7 +44,7 @@ class ControladorMaquina:
                 while True:
                     x = self.__tela_gerencia.opcoes_gerencia()
                     if x == 1:
-                        pass  # self.__controlador_prod.opcoes_produto()  # Alterar nome na classe TODO
+                        self.__controlador_prod.opcoes_produto()
                     elif x == 2:
                         self.__controlador_adm.opcoes_administrador()
                     elif x == 0:
@@ -53,8 +53,20 @@ class ControladorMaquina:
         else:
             self.__tela_gerencia.mostra_msg('Dados incorretos')
 
-    def opcoes_vendas(self):
-        pass # TODO
-
     def iniciar(self):
         self.opcoes_maquina()
+
+
+'''
+    def vendas(self):
+        while True:
+            self.__controlador_prod.listar_produtos()
+            self.__tela_maq.mostra_msg('Insira o código do produto')
+            cod = self.__tela_maq.pega_codigo()
+            if cod == 999:
+                break
+            else:
+                for i in self.__produtos:
+                    if i.codigo == cod:
+                        i.quantidade -= 1
+'''
