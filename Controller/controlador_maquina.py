@@ -54,7 +54,7 @@ class ControladorMaquina:
             self.__tela_gerencia.mostra_msg('Dados incorretos')
 
     def opcoes_vendas(self):
-        pass
+        pass # TODO
 
     def iniciar(self):
         self.opcoes_maquina()
