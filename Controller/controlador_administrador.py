@@ -6,6 +6,7 @@ class ControladorAdministrador:
     def __init__(self, controlador_maquina):
         self.__tela_adm = TelaAdministrador()
         self.__controlador_maq = controlador_maquina
+        self.__controlador_maq.administradores.append(Administrador('Admin', 999, '0000'))
 
     def opcoes_administrador(self):
         while True:

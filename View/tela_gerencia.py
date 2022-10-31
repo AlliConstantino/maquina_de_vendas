@@ -9,3 +9,8 @@ class TelaGerencia(AbstractTela):
         print('0 - Voltar')
         op = self.le_num_inteiro('Opção: ', [1, 2, 0])
         return op
+
+    def logar(self):
+        cod = self.pega_codigo()
+        senha = input('Insira a senha: ')
+        return {'codigo': cod, 'senha': senha}

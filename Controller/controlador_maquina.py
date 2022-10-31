@@ -11,7 +11,7 @@ class ControladorMaquina:
         self.__produtos = []
         self.__historico = []
         self.__controlador_adm = ControladorAdministrador(self)
-        #self.__controlador_prod = ControladorProduto(self)
+        #self.__controlador_prod = ControladorProduto(self) TODO
         self.__tela_maq = TelaMaquina()
         self.__tela_gerencia = TelaGerencia()
 
@@ -31,22 +31,28 @@ class ControladorMaquina:
         while True:
             x = self.__tela_maq.opcoes_maq()
             if x == 1:
-                pass # Falta Tela Vendas
+                pass # Falta Tela Vendas TODO
             elif x == 2:
                 self.opcoes_gerencia()
             elif x == 0:
-                self.__tela_maq.mostra_msg('Até logo.')
+                self.__tela_maq.mostra_msg('Até logo!')
                 break
 
     def opcoes_gerencia(self):
-        while True:
-            x = self.__tela_gerencia.opcoes_gerencia()
-            if x == 1:
-                pass #self.__controlador_prod.opcoes_produto()  # Alterar nome na classe
-            elif x == 2:
-                self.__controlador_adm.opcoes_administrador()
-            elif x == 0:
+        a = self.__tela_gerencia.logar()
+        for i in self.__administradores:
+            if i.codigo == a['codigo'] and i.senha == a['senha']:
+                while True:
+                    x = self.__tela_gerencia.opcoes_gerencia()
+                    if x == 1:
+                        pass #self.__controlador_prod.opcoes_produto()  # Alterar nome na classe TODO
+                    elif x == 2:
+                        self.__controlador_adm.opcoes_administrador()
+                    elif x == 0:
+                        break
                 break
+        else:
+            self.__tela_gerencia.mostra_msg('Dados incorretos')
 
     def iniciar(self):
         self.opcoes_maquina()
