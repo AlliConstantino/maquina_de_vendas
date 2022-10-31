@@ -17,7 +17,7 @@ class TelaBebida(AbstractTela):
         quantidade = input('Coloque a quantidade da comida: ')
         tipo = input('Coloque o tipo: ')
 
-    def mostra_comida(self, nome: str, codigo: int, preco: float, quantidade: int, tipo: str):
+    def mostra_bebida(self, nome: str, codigo: int, preco: float, quantidade: int, tipo: str):
         print(print('-------------', 'bebida', '---------------'))
         print('Nome: ', nome)
         print('Código: ', codigo)
