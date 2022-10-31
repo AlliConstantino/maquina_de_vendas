@@ -1,10 +1,7 @@
-from View.abtract_tela import AbstractTela
-
-
-class TelaProduto(AbstractTela):
+class TelaProduto:
 
     #deixar, mas revisar depois
-    def opcoes_produto(self):
+    def opcoes_administrador(self):
         print('-------------', 'Produtos', '---------------')
         self.tela_opcoes()
         op = self.le_num_inteiro('Opção: ', [0, 1, 2, 3, 4])
