@@ -46,4 +46,4 @@ class ControladorProduto:
             self.__tela_produto.mostra_msg('Lista  de produtos esta vazia :(.')
         else:
             for produto in self.__controlador_maquina.produtos:
-                self.__tela_produto.mostra_produto(produto.nome, produto.codigo, produto.preco, produto.quantidade, produto.tipo)
+                self.__tela_produto.mostra_produto(produto.nome, produto.codigo, produto.preco, produto.quantidade)

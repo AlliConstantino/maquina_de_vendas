@@ -8,44 +8,44 @@ class Produto:
 
 
 
-        @property
-        def tipo(self):
-            return self.__tipo
+    @property
+    def tipo(self):
+        return self.__tipo
 
-        @property
-        def nome(self):
-            return self.__nome
+    @property
+    def nome(self):
+        return self.__nome
 
-        @property
-        def codigo(self):
-            return self.__codigo
+    @property
+    def codigo(self):
+        return self.__codigo
 
-        @property
-        def preco(self):
-            return self.__preco
+    @property
+    def preco(self):
+        return self.__preco
 
-        @property
-        def quantidade(self):
-            return self.__quantidade
+    @property
+    def quantidade(self):
+        return self.__quantidade
 
-        #setters
+    # setters
 
-        @nome.setter
-        def nome(self, nome:str):
-            self.__nome = nome
+    @nome.setter
+    def nome(self, nome:str):
+        self.__nome = nome
 
-        @codigo.setter
-        def codigo(self, codigo):
-            self.__codigo = codigo
+    @codigo.setter
+    def codigo(self, codigo):
+        self.__codigo = codigo
 
-        @preco.setter
-        def preco(self, preco: float):
-            self.__preco = preco
+    @preco.setter
+    def preco(self, preco: float):
+        self.__preco = preco
 
-        @quantidade.setter
-        def quantidade(self, quantidade: int):
-            self.__quantidade = quantidade
+    @quantidade.setter
+    def quantidade(self, quantidade: int):
+        self.__quantidade = quantidade
 
-        @tipo.setter
-        def tipo(self, tipo: str):
-            self.__tipo = tipo
+    @tipo.setter
+    def tipo(self, tipo: str):
+        self.__tipo = tipo
