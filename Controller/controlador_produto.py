@@ -4,12 +4,12 @@ from View.tela_produto import TelaProduto
 
 class ControladorProduto:
     def __init__(self, controlador_produto):
-        self.__tela_produto = Telaproduto() #cria uma nova tela
-        self.__controlador_produto = controlador_produto
+        self.__tela_produto = TelaProduto() #cria uma nova tela
+        #self.__controlador_produto = controlador_produto
 
     # Coloca o nome só como opcoes_produto
 
-    def opcoes_administrador_produto(self):
+    def opcoes_produto(self):
         while True:
             op = self.__tela_produto.opcoes_produto()
             if op == 1:
