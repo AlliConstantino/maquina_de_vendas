@@ -67,3 +67,5 @@ class ControladorMaquina:
                 for i in self.__produtos:
                     if i.codigo == cod:
                         i.quantidade -= 1
+                        self.__tela_maq.mostra_msg('Muito obrigado!')
+                        break
