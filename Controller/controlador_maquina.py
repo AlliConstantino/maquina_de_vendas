@@ -55,5 +55,6 @@ class ControladorMaquina:
 
     def opcoes_vendas(self):
         pass
+
     def iniciar(self):
         self.opcoes_maquina()
