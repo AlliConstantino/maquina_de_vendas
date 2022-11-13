@@ -2,8 +2,6 @@ from View.abtract_tela import AbstractTela
 
 
 class TelaProduto(AbstractTela):
-
-    #deixar, mas revisar depois
     def opcoes_produto(self):
         print('-------------', 'Produtos', '---------------')
         self.tela_opcoes()
@@ -25,3 +23,25 @@ class TelaProduto(AbstractTela):
         print('Código: ', codigo)
         print('Preco: ', preco)
         print('Quantidade: ', quantidade)
+
+    def pega_dados(self):
+        nome = input('Nome: ')
+        while True:
+            try:
+                codigo = int(input('Código: '))
+                break
+            except ValueError:
+                print('Valor inválido!')
+        while True:
+            try:
+                preco = float(input('Preço: '))
+                break
+            except ValueError:
+                print('Valor inválido!')
+        while True:
+            try:
+                quantidade = int(input('Quantidade: '))
+                break
+            except ValueError:
+                print('Valor inválido!')
+        return {nome: 'nome', codigo: 'codigo', preco: 'preco', quantidade: 'quantidade'}

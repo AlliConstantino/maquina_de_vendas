@@ -4,7 +4,7 @@ from View.tela_produto import TelaProduto
 
 class ControladorProduto:
     def __init__(self, controlador_maquina):
-        self.__tela_produto = TelaProduto() #cria uma nova tela
+        self.__tela_produto = TelaProduto()
         self.__controlador_maquina = controlador_maquina
 
     def opcoes_produto(self):
@@ -29,21 +29,38 @@ class ControladorProduto:
         for produto in self.__controlador_maquina.produtos:
             if produto.codigo == novo_produto.codigo:
                 self.__tela_produto.mostra_msg('Produto já existe!')
-                self.opcoes_produto()
+                break
         else:
             self.__controlador_maquina.produtos.append(novo_produto)
-            self.opcoes_produto()
 
     def excluir_produto(self):
         cod = self.__tela_produto.pega_codigo()
         for produto in self.__controlador_maquina.produtos:
             if produto.codigo == cod:
                 self.__controlador_maquina.produtos.remove(produto)
-                self.listar_produtos()
+                break
+        else:
+            self.__tela_produto.mostra_msg('Produto não encontrado.')
 
     def listar_produtos(self):
         if len(self.__controlador_maquina.produtos) == 0:
-            self.__tela_produto.mostra_msg('Lista  de produtos esta vazia :(.')
+            self.__tela_produto.mostra_msg('Lista  de produtos esta vazia!')
         else:
             for produto in self.__controlador_maquina.produtos:
                 self.__tela_produto.mostra_produto(produto.nome, produto.codigo, produto.preco, produto.quantidade)
+
+    def alterar_produto(self):
+        self.__tela_produto.mostra_msg('O que deseja alterar?')
+        self.listar_produtos()
+        cod = self.__tela_produto.pega_codigo()
+        dados = self.__tela_produto.pega_dados()
+        for produto in self.__controlador_maquina.produtos:
+            if produto.codigo == cod:
+                produto.nome = dados['nome']
+                produto.codigo = dados['codigo']
+                produto.quantidade = dados['quantidade']
+                produto.tipo = dados['tipo']
+                break
+        else:
+            self.__tela_produto.mostra_msg('Produto não encontrado.')
+
