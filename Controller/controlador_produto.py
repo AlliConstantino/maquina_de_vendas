@@ -24,7 +24,7 @@ class ControladorProduto:
 
     def novo_produto(self):
         dados_produto = self.__tela_produto.novo_produto()
-        novo_produto = Produto(dados_produto['nome'],dados_produto['codigo'], dados_produto['preco'],
+        novo_produto = Produto(dados_produto['nome'], dados_produto['codigo'], dados_produto['preco'],
                                dados_produto['quantidade'], dados_produto['tipo'])
         for produto in self.__controlador_maquina.produtos:
             if produto.codigo == novo_produto.codigo:
@@ -44,7 +44,7 @@ class ControladorProduto:
 
     def listar_produtos(self):
         if len(self.__controlador_maquina.produtos) == 0:
-            self.__tela_produto.mostra_msg('Lista  de produtos esta vazia!')
+            self.__tela_produto.mostra_msg('Não há produtos na máquina!')
         else:
             for produto in self.__controlador_maquina.produtos:
                 self.__tela_produto.mostra_produto(produto.nome, produto.codigo, produto.preco, produto.quantidade)
@@ -63,4 +63,3 @@ class ControladorProduto:
                 break
         else:
             self.__tela_produto.mostra_msg('Produto não encontrado.')
-

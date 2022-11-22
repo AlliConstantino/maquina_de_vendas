@@ -1,5 +1,8 @@
+from Model.tipo import Tipo
+
+
 class Produto:
-    def __init__(self, nome: str, codigo, preco: float, quantidade: int, tipo: str):
+    def __init__(self, nome: str, codigo, preco: float, quantidade: int, tipo: Tipo):
         self.__nome = nome
         self.__codigo = codigo
         self.__quantidade = quantidade
@@ -47,5 +50,5 @@ class Produto:
         self.__quantidade = quantidade
 
     @tipo.setter
-    def tipo(self, tipo: str):
+    def tipo(self, tipo: Tipo):
         self.__tipo = tipo
