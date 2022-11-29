@@ -29,16 +29,25 @@ class TelaProduto(AbstractTela):
                 break
             except ValueError:
                 print('Valor inválido!')
+
+        while True:
+            try:
+                tipo = input('Tipo do produto: ')
+                break
+            except ValueError:
+                print('Valor invalido!!')
+
         while True:
 
-        return {'nome': nome, 'codigo': codigo, 'preco': preco, 'quantidade': quantidade, 'tipo': tipo}
+            return {'nome': nome, 'codigo': codigo, 'preco': preco, 'quantidade': quantidade, 'tipo': tipo}
 
-    def mostra_produto(self, nome: str, codigo: int, preco: float, quantidade: int):
+    def mostra_produto(self, nome: str, codigo: int, preco: float, quantidade: int, tipo: str):
         print(print('-------------', 'Produtos', '---------------'))
         print('Nome: ', nome)
         print('Código: ', codigo)
         print('Preco: ', preco)
         print('Quantidade: ', quantidade)
+        print('Tipo', tipo)
 
     def pega_dados(self):
         nome = input('Nome: ')
