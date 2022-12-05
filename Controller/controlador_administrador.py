@@ -1,6 +1,6 @@
 from Model.administrador import Administrador
-# from View.tela_administrador import TelaAdministrador
 from GUI_View.tela_adm import TelaAdm
+from Exception.AdmDuplicadoException import AdmDuplicadoException
 
 
 class ControladorAdministrador:
@@ -17,8 +17,6 @@ class ControladorAdministrador:
             elif op == 2:
                 self.excluir_administrador()
             elif op == 3:
-                self.listar_administradores()
-            elif op == 4:
                 self.alterar_adm()
             elif op == 0:
                 break
@@ -29,50 +27,77 @@ class ControladorAdministrador:
         dados_adm = self.__tela_adm.dados_adm()
         if dados_adm is None:
             return
-        else:
-            novo_adm = Administrador(dados_adm['nome'],
-                                     dados_adm['codigo'],
-                                     dados_adm['senha'])
-            flag = False
-            for admin in self.__controlador_maq.administradores:
-                if admin.codigo == novo_adm.codigo:
-                    self.__tela_adm.mostra_mensagem('Administrador já existe!')
-                    flag = True
-            if flag is False:
+        elif dados_adm[0] == 0:
+            return
+        elif dados_adm[0] == 1:
+            novo_adm = Administrador(dados_adm[1]['it_nome'],
+                                     dados_adm[1]['it_codigo'],
+                                     dados_adm[1]['it_senha'])
+            try:
+                for admin in self.__controlador_maq.administradores:
+                    if admin.codigo == dados_adm[1]['it_codigo']:
+                        raise AdmDuplicadoException
+            except AdmDuplicadoException:
+                self.__tela_adm.mostra_mensagem('Administrador duplicado',
+                                                'Já existe um administrador com o mesmo código')
+                return
+            else:
                 self.__controlador_maq.administradores.append(novo_adm)
 
     def excluir_administrador(self):
-        if len(self.__controlador_maq.administradores) >= 1:
-            self.listar_administradores()
-            cod = self.__tela_adm.pega_codigo()
-            flag = True
-            for adm in self.__controlador_maq.administradores:
-                if adm.codigo == cod:
-                    self.__controlador_maq.administradores.remove(adm)
-                    flag = False
-            if flag is True:
-                self.__tela_adm.mostra_mensagem('Administrador não encontrado!')
+        op = self.__tela_adm.excluir_adm(self.__controlador_maq.administradores)
+        if op is None:
+            return
+        elif op[0] == 0:
+            print(op[0])
+            return
         else:
-            self.__tela_adm.mostra_mensagem('Lista vazia.')
-
-    def listar_administradores(self):
-        if len(self.__controlador_maq.administradores) == 0:
-            self.__tela_adm.mostra_mensagem('Lista vazia.')
-        else:
-            for adm in self.__controlador_maq.administradores:
-                self.__tela_adm.mostra_adm(adm.nome, adm.codigo)
+            try:
+                codigo = (op[1]['lb_adm_exc'][0][1])
+                if len(self.__controlador_maq.administradores) == 1:
+                    self.__tela_adm.mostra_mensagem('Impossível excluir administrador',
+                                                    'É necessário haver ao menos um administrador na máquina')
+                else:
+                    for i in self.__controlador_maq.administradores:
+                        if i.codigo == codigo:
+                            self.__controlador_maq.administradores.remove(i)
+                            self.__tela_adm.mostra_mensagem('Concluído', 'Administrador excluído com sucesso!')
+            except IndexError:
+                return
+            except TypeError:
+                return
 
     def alterar_adm(self):
-        self.__tela_adm.mostra_mensagem('Quem deseja alterar?')
-        self.listar_administradores()
-        cod = self.__tela_adm.pega_codigo()
-        flag = False
-        for adm in self.__controlador_maq.administradores:
-            if adm.codigo == cod:
-                novos_dados = self.__tela_adm.pega_dados()
-                adm.codigo = novos_dados['codigo']
-                adm.nome = novos_dados['nome']
-                adm.senha = novos_dados['senha']
-                flag = True
-        if flag is False:
-            self.__tela_adm.mostra_mensagem('Código inexistente.')
+        res = self.__tela_adm.alterar_administrador(self.__controlador_maq.administradores)
+        try:
+            cod = res[1]['lb_adm_alt'][0][1]
+            if res is None:
+                return
+            if res[0] == 0:
+                return
+            else:
+                op = self.__tela_adm.opcoes_alteracao()
+                x = self.__tela_adm.alteracao()
+                if op is None or x is None:
+                    return
+                if op[0] == 0 or x[0] == 0:
+                    return
+                for i in self.__controlador_maq.administradores:
+                    if i.codigo == cod:
+                        if op[0] == 2:
+                            i.nome = x[0]['it_alter'][0][1]
+                            return
+                        elif op[0] == 3:
+                            i.codigo = int(x[0]['it_alter'][0][1])
+                            return
+                        elif op[0] == 4:
+                            i.senha = x[0]['it_alter'][0][1]
+                            return
+                else:
+                    self.__tela_adm.mostra_mensagem('Administrador não encontrado',
+                                                    'Não foi possível encontrar um administrador com o código passado')
+
+        except IndexError:
+            return
+        except TypeError:
+            return

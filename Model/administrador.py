@@ -18,12 +18,15 @@ class Administrador:
 
     @nome.setter
     def nome(self, nome):
-        self.__nome = nome
+        if isinstance(nome, str):
+            self.__nome = nome
 
     @codigo.setter
     def codigo(self, codigo):
-        self.__codigo = codigo
+        if isinstance(codigo, int):
+            self.__codigo = codigo
 
     @senha.setter
     def senha(self, senha):
-        self.__senha = senha
+        if isinstance(senha, str):
+            self.__senha = senha
