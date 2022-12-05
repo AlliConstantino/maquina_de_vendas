@@ -30,7 +30,7 @@ class TelaAdm:
 
                  ]
         self.__window = sg.Window(title='Administradores').Layout(layout)
-        op = (self.open())
+        op = self.open()
         self.close()
         return op[0]
 
@@ -82,7 +82,7 @@ class TelaAdm:
 
                   ]
         self.__window = sg.Window('Excluir Administrador').Layout(layout)
-        op = (self.open())
+        op = self.open()
         self.close()
         if op is None:
             return
@@ -103,7 +103,7 @@ class TelaAdm:
 
                   ]
         self.__window = sg.Window('Excluir Administrador').Layout(layout)
-        op = (self.open())
+        op = self.open()
         self.close()
         if op is None:
             return
@@ -137,7 +137,7 @@ class TelaAdm:
 
                  ]
         self.__window = sg.Window('Alteração').Layout(layout)
-        op = (self.open())
+        op = self.open()
         self.close()
         if op is None:
             return
