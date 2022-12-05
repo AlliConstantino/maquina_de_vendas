@@ -49,7 +49,6 @@ class ControladorAdministrador:
         if op is None:
             return
         elif op[0] == 0:
-            print(op[0])
             return
         else:
             try:
@@ -69,35 +68,49 @@ class ControladorAdministrador:
 
     def alterar_adm(self):
         res = self.__tela_adm.alterar_administrador(self.__controlador_maq.administradores)
-        try:
-            cod = res[1]['lb_adm_alt'][0][1]
-            if res is None:
-                return
-            if res[0] == 0:
-                return
-            else:
+        if res is None:
+            return
+        if res[0] == 0:
+            return
+        else:
+            try:
+                cod = res[1]['lb_adm_alt'][0][1]
                 op = self.__tela_adm.opcoes_alteracao()
-                x = self.__tela_adm.alteracao()
-                if op is None or x is None:
+                if op is None:
                     return
-                if op[0] == 0 or x[0] == 0:
+                elif op[0] == 0 or op[0] is None:
                     return
-                for i in self.__controlador_maq.administradores:
-                    if i.codigo == cod:
-                        if op[0] == 2:
-                            i.nome = x[0]['it_alter'][0][1]
-                            return
-                        elif op[0] == 3:
-                            i.codigo = int(x[0]['it_alter'][0][1])
-                            return
-                        elif op[0] == 4:
-                            i.senha = x[0]['it_alter'][0][1]
-                            return
+                elif op[0] == 1 and len(op[1]) == 0:
+                    return
                 else:
-                    self.__tela_adm.mostra_mensagem('Administrador não encontrado',
-                                                    'Não foi possível encontrar um administrador com o código passado')
+                    x = self.__tela_adm.alteracao()
+                    if x is None:
+                        return
+                    if x[0] == 0:
+                        return
+                    if x[0] is None:
+                        return
+                    if x[1]['it_alter'] is None:
+                        return
+                    for i in self.__controlador_maq.administradores:
+                        if i.codigo == cod:
+                            if op[0] == 2:
+                                i.nome = x[1]['it_alter']
+                                self.__tela_adm.mostra_mensagem('Sucesso', 'Nome alterado')
+                                return
+                            elif op[0] == 3:
+                                i.codigo = int(x[1]['it_alter'])
+                                self.__tela_adm.mostra_mensagem('Sucesso', 'Código alterado')
+                                return
+                            elif op[0] == 4:
+                                self.__tela_adm.mostra_mensagem('Sucesso', 'Senha alterada')
+                                i.senha = x[1]['it_alter']
+                                return
 
-        except IndexError:
-            return
-        except TypeError:
-            return
+            except IndexError:
+                return
+            except TypeError:
+                return
+            except ValueError:
+                self.__tela_adm.mostra_mensagem('Código inválido!', 'Somente números inteiros são aceitos')
+                return

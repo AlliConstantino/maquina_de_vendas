@@ -117,8 +117,7 @@ class TelaAdm:
             [[sg.Button('Nome', key=2, font=('Times New Roman', 15)),
              sg.Button('Código', key=3, font=('Times New Roman', 15)),
              sg.Button('Senha', key=4, font=('Times New Roman', 15))]],
-            [sg.Button('Voltar', font=('Times New Roman', 15), key=0),
-             sg.Button('Confirmar', font=('Times New Roman', 15), key=1)]
+            [sg.Button('Voltar', font=('Times New Roman', 12), key=0)]
 
                 ]
         self.__window = sg.Window('Alteração').Layout(layout)
@@ -133,13 +132,15 @@ class TelaAdm:
 
             [sg.Text('Novo dado', size=(35, 1), font='Lucida', justification='left')],
             [sg.InputText(key='it_alter')],
-            [sg.Button('Voltar', font=('Times New Roman', 15), key=0),
-             sg.Button('Confirmar', font=('Times New Roman', 15), key=1)]
+            [sg.Button('Cancelar', font=('Times New Roman', 12), key=0),
+             sg.Button('Confirmar', font=('Times New Roman', 12), key=1)]
 
                  ]
         self.__window = sg.Window('Alteração').Layout(layout)
         op = (self.open())
+        self.close()
         if op is None:
             return
-        self.close()
+        if len(op[1]['it_alter']) == 0:
+            return None
         return op
