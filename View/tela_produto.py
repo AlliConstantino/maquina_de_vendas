@@ -40,7 +40,7 @@ class TelaProduto(AbstractTela):
         print('Código: ', codigo)
         print('Preco: ', preco)
         print('Quantidade: ', quantidade)
-        print('Tipo', tipo)
+        print('Tipo: ', tipo)
 
     def pega_dados(self):
         nome = input('Nome: ')
@@ -62,4 +62,8 @@ class TelaProduto(AbstractTela):
                 break
             except ValueError:
                 print('Valor inválido!')
-        return {nome: 'nome', codigo: 'codigo', preco: 'preco', quantidade: 'quantidade'}
+
+        while True:
+                tipo = input('Tipo: ')
+                break
+        return {'nome': nome, 'codigo': codigo, 'preco': preco,  'quantidade': quantidade, 'tipo': tipo}

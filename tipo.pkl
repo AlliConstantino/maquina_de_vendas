@@ -1,0 +1,8 @@
+import pickle
+tipos = {}
+arq_tipos_escrita = open('produto.pkl' , 'wb')
+arq_tipos_leitura = open('tipos.pkl' , 'rb)
+
+pickle.dump(tipos, arq_tipos)
+
+tipos = pickle.load(tipos, arq_tipos_leitura)

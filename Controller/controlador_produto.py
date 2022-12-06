@@ -38,6 +38,7 @@ class ControladorProduto:
         for produto in self.__controlador_maquina.produtos:
             if produto.codigo == cod:
                 self.__controlador_maquina.produtos.remove(produto)
+                self.__tela_produto.mostra_msg('Produto excluido com sucesso!')
                 break
         else:
             self.__tela_produto.mostra_msg('Produto não encontrado.')
@@ -55,6 +56,7 @@ class ControladorProduto:
         cod = self.__tela_produto.pega_codigo()
         dados = self.__tela_produto.pega_dados()
         for produto in self.__controlador_maquina.produtos:
+            #print(type(produto))
             if produto.codigo == cod:
                 produto.nome = dados['nome']
                 produto.codigo = dados['codigo']

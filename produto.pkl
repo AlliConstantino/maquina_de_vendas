@@ -1,0 +1,8 @@
+import pickle
+produtos = {}
+arq_produtos_escrita = open('produto.pkl' , 'wb')
+arq_produtos_leitura = open('produtos.pkl' , 'rb)
+
+pickle.dump(produtos, arq_produtos)
+
+produtos = pickle.load(produtos, arq_produtos_leitura)
