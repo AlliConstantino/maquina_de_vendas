@@ -29,7 +29,6 @@ class TelaProduto(AbstractTela):
                 break
             except ValueError:
                 print('Valor inválido!')
-        #return {'nome': nome, 'codigo': codigo, 'preco': preco, 'quantidade': quantidade, 'tipo': tipo}
 
     def mostra_produto(self, nome: str, codigo: int, preco: float, quantidade: int):
         print(print('-------------', 'Produtos', '---------------'))
