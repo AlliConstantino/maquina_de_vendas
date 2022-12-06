@@ -6,6 +6,7 @@ class ControladorProduto:
     def __init__(self, controlador_maquina):
         self.__tela_produto = TelaProduto()
         self.__controlador_maquina = controlador_maquina
+        #self.__produto = Produto
 
     def opcoes_produto(self):
         while True:
@@ -16,7 +17,6 @@ class ControladorProduto:
                 self.excluir_produto()
             elif op == 3:
                 self.listar_produtos()
-
             elif op == 4:
                 self.alterar_produto()
             elif op == 0:
@@ -47,7 +47,7 @@ class ControladorProduto:
             self.__tela_produto.mostra_msg('Não há produtos na máquina!')
         else:
             for produto in self.__controlador_maquina.produtos:
-                self.__tela_produto.mostra_produto(produto.nome, produto.codigo, produto.preco, produto.quantidade)
+                self.__tela_produto.mostra_produto(produto.nome, produto.codigo, produto.preco, produto.quantidade, produto.tipo)
 
     def alterar_produto(self):
         self.__tela_produto.mostra_msg('O que deseja alterar?')
@@ -58,6 +58,7 @@ class ControladorProduto:
             if produto.codigo == cod:
                 produto.nome = dados['nome']
                 produto.codigo = dados['codigo']
+                produto.preco = dados['preco']
                 produto.quantidade = dados['quantidade']
                 produto.tipo = dados['tipo']
                 break
