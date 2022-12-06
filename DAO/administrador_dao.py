@@ -1,5 +1,5 @@
 from Model.administrador import Administrador
-from dao import DAO
+from DAO.dao import DAO
 
 
 class AdministradorDao(DAO):

@@ -7,7 +7,7 @@ class ControladorAdministrador:
     def __init__(self, controlador_maquina):
         self.__tela_adm = TelaAdm()
         self.__controlador_maq = controlador_maquina
-        self.__controlador_maq.administradores.append(Administrador('Admin', 999, '0000'))
+        self.__controlador_maq.administradores.add(Administrador('Admin', 999, '0000'))
 
     def opcoes_administrador(self):
         while True:
@@ -34,15 +34,15 @@ class ControladorAdministrador:
                                      dados_adm[1]['it_codigo'],
                                      dados_adm[1]['it_senha'])
             try:
-                for admin in self.__controlador_maq.administradores:
-                    if admin.codigo == dados_adm[1]['it_codigo']:
+                for i in self.__controlador_maq.administradores.values():
+                    if i == novo_adm.codigo:
                         raise AdmDuplicadoException
             except AdmDuplicadoException:
                 self.__tela_adm.mostra_mensagem('Administrador duplicado',
                                                 'Já existe um administrador com o mesmo código')
                 return
             else:
-                self.__controlador_maq.administradores.append(novo_adm)
+                self.__controlador_maq.administradores.add(novo_adm)
 
     def excluir_administrador(self):
         op = self.__tela_adm.excluir_adm(self.__controlador_maq.administradores)
@@ -57,8 +57,8 @@ class ControladorAdministrador:
                     self.__tela_adm.mostra_mensagem('Impossível excluir administrador',
                                                     'É necessário haver ao menos um administrador na máquina')
                 else:
-                    for i in self.__controlador_maq.administradores:
-                        if i.codigo == codigo:
+                    for i in self.__controlador_maq.administradores.values():
+                        if i == codigo:
                             self.__controlador_maq.administradores.remove(i)
                             self.__tela_adm.mostra_mensagem('Concluído', 'Administrador excluído com sucesso!')
             except IndexError:

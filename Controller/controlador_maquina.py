@@ -39,20 +39,22 @@ class ControladorMaquina:
                 break
 
     def opcoes_gerencia(self):
-        a = self.__tela_gerencia.logar()
-        for i in self.__administradores:
-            if i.codigo == a['codigo'] and i.senha == a['senha']:
+        codigo, senha = self.__tela_maquina.logar()
+        if codigo is None or senha is None:
+            return None
+        for i in self.administradores.values():
+            if i.codigo == codigo and i.senha == senha:
                 while True:
-                    x = self.__tela_gerencia.opcoes_gerencia()
-                    if x == 1:
+                    op = self.__tela_gerencia.opcoes_gerencia()
+                    if codigo is None or senha is None:
+                        return None
+                    if op == 1:
                         self.__controlador_prod.opcoes_produto()
-                    elif x == 2:
+                    elif op == 2:
                         self.__controlador_adm.opcoes_administrador()
-                    elif x == 0:
-                        break
-                break
         else:
-            self.__tela_gerencia.mostra_msg('Dados incorretos')
+            self.__tela_gerencia.mostra_mensagem('Erro', 'Dados incorretos')
+
 
     def iniciar(self):
         self.opcoes_maquina()
