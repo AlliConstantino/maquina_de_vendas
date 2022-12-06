@@ -31,13 +31,6 @@ class TelaProduto(AbstractTela):
                 print('Valor inválido!')
 
         while True:
-            try:
-                tipo = input('Tipo do produto: ')
-                break
-            except ValueError:
-                print('Valor invalido!!')
-
-        while True:
 
             return {'nome': nome, 'codigo': codigo, 'preco': preco, 'quantidade': quantidade, 'tipo': tipo}
 
