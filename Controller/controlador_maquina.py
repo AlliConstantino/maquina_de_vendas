@@ -2,11 +2,12 @@ from Controller.controlador_administrador import ControladorAdministrador
 from Controller.controlador_produto import ControladorProduto
 from View.tela_maq import TelaMaquina
 from View.tela_gerencia import TelaGerencia
+from DAO.administrador_dao import AdministradorDao
 
 
 class ControladorMaquina:
     def __init__(self):
-        self.__administradores = []
+        self.__administradores = AdministradorDao()
         self.__produtos = []
         self.__historico = []
         self.__controlador_adm = ControladorAdministrador(self)
@@ -16,7 +17,7 @@ class ControladorMaquina:
 
     @property
     def administradores(self):
-        return self.__administradores
+        return self.__administradores.get_all()
 
     @property
     def produtos(self):
