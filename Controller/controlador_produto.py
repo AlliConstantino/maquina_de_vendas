@@ -1,11 +1,14 @@
 from Model.produto import Produto
 from View.tela_produto import TelaProduto
+from DAO.dao import DAO
+from Model.produtoDAO import ProdutoDAO
 
 
 class ControladorProduto:
     def __init__(self, controlador_maquina):
         self.__tela_produto = TelaProduto()
         self.__controlador_maquina = controlador_maquina
+        self.produtoDAO = ProdutoDAO()
         #self.__produto = Produto
 
     def opcoes_produto(self):
