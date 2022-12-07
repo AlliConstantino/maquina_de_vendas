@@ -13,4 +13,5 @@ Alice:
 * Cuidou da parte de produtos, programando o modelo, controlador, telas e aplicando a persistência.
 
 Sandro:
-* Desenvolveu o lado dos administradores, modelo, controlador, telas e persistência.
+* Desenvolveu o lado dos administradores, modelo, controlador, telas e persistência;
+* A máquina e suas telas
