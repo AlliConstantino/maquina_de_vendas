@@ -6,8 +6,8 @@ class AdministradorDao(DAO):
     def __init__(self):
         super().__init__('administradores.pkl')
 
-    def add(self, administrador: Administrador):
-        super().add(administrador.codigo, administrador)
+    def add(self, key, obj):
+        super().add(key, obj)
 
     def remove(self, key):
         return super().remove(key)

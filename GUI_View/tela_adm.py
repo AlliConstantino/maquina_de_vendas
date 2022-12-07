@@ -19,7 +19,7 @@ class TelaAdm:
         sg.ChangeLookAndFeel = 'DarkGrey14'
         layout = [
 
-            [sg.Text('Administradores', font=('Times New Roman', 18), size=(30, 1))],
+            [sg.Text('Bem vindo!', font=('Times New Roman', 18), size=(30, 1))],
             [sg.Text('Escolha uma opção', font=('Times New Roman', 15))],
             [sg.Text()],
             [sg.Button('Novo administrador', key=1, font=('Times New Roman', 15)),
