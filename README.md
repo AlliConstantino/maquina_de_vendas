@@ -14,4 +14,4 @@ Alice:
 
 Sandro:
 * Desenvolveu o lado dos administradores, modelo, controlador, telas e persistência;
-* A máquina e suas telas
+* A máquina e suas telas.
