@@ -81,6 +81,7 @@ class ControladorAdministrador:
             except RuntimeError:
                 pass
 
+
     def alterar_adm(self):
         admins = []
         for i in self.administradores.values():
