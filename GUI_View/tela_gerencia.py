@@ -24,7 +24,7 @@ class TelaGerencia:
             [sg.Button('Produtos', key=1, font=('Times New Roman', 15)),
              sg.Button('Administradores', key=2, font=('Times New Roman', 15))],
             [sg.Text()],
-            [sg.Button('Sair', key=0, font=('Times New Roman', 12))]
+            [sg.Button('Voltar', key=0, font=('Times New Roman', 12))]
 
                  ]
         self.__window = sg.Window(title='Gerência').Layout(layout)

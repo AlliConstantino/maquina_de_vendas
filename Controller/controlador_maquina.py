@@ -29,7 +29,7 @@ class ControladorMaquina:
                     return None
                 if x == 0:
                     return None
-                #if x == 1:
+                # if x == 1:
                 #    self.vendas()
                 elif x == 2:
                     self.opcoes_gerencia()
@@ -62,7 +62,7 @@ class ControladorMaquina:
         try:
             self.opcoes_maquina()
         except KeyboardInterrupt:
-            print('Obrigado pela atenção!!!')
+            print('Obrigado!!!')
 
 
 '''
