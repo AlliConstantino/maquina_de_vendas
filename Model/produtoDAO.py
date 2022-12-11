@@ -1,5 +1,5 @@
 from dao import DAO
-from produto import Produto
+from Model.produto import Produto
 
 class ProdutoDAO(DAO):
     def __int__(self):

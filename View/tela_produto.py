@@ -31,6 +31,9 @@ class TelaProduto(AbstractTela):
                 print('Valor inválido!')
 
         while True:
+            #
+            tipo = input('Tipo: ')
+            break
 
             return {'nome': nome, 'codigo': codigo, 'preco': preco, 'quantidade': quantidade, 'tipo': tipo}
 
