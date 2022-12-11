@@ -35,7 +35,7 @@ class ControladorAdministrador:
         dados_adm = self.__tela_adm.dados_adm()  # Busca os dados para o novo adm
         if dados_adm is None:
             return
-        elif len(dados_adm[1]['it_nome']) == 0 or len(dados_adm[1]['it_senha']) == 0:  # Verifica se os campos estão vazios
+        elif len(dados_adm[1]['it_nome']) == 0 or len(dados_adm[1]['it_senha']) == 0:  # Verifica campos vazios
             self.__tela_adm.mostra_mensagem('Campos vazios', 'Alguns campos não foram preenchidos!')
         elif dados_adm[0] == 0:
             return
