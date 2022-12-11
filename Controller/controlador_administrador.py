@@ -32,10 +32,10 @@ class ControladorAdministrador:
                 return
 
     def novo_administrador(self):
-        dados_adm = self.__tela_adm.dados_adm()
+        dados_adm = self.__tela_adm.dados_adm()  # Busca os dados para o novo adm
         if dados_adm is None:
             return
-        elif len(dados_adm[1]['it_nome']) == 0 or len(dados_adm[1]['it_senha']) == 0:
+        elif len(dados_adm[1]['it_nome']) == 0 or len(dados_adm[1]['it_senha']) == 0:  # Verifica se os campos estão vazios
             self.__tela_adm.mostra_mensagem('Campos vazios', 'Alguns campos não foram preenchidos!')
         elif dados_adm[0] == 0:
             return
@@ -44,7 +44,7 @@ class ControladorAdministrador:
                                      dados_adm[1]['it_codigo'],
                                      dados_adm[1]['it_senha'])
             try:
-                for i in self.administradores.values():
+                for i in self.administradores.values():  # Percorre os administradores verificando se já existe o código
                     if i.codigo == novo_adm.codigo:
                         raise AdmDuplicadoException
             except AdmDuplicadoException:
@@ -58,14 +58,14 @@ class ControladorAdministrador:
         admins = []
         for i in self.administradores.values():
             admins.append(i)
-        op = self.__tela_adm.excluir_adm(admins)
+        op = self.__tela_adm.excluir_adm(admins)  # Envia a lista necessária para a listbox da tela
         if op is None:
             return
         elif op[0] == 0:
             return
         else:
             try:
-                codigo = (op[1]['lb_adm_exc'][0][1])
+                codigo = (op[1]['lb_adm_exc'][0][1])  # Pegano código do dicionário
                 if len(self.administradores) == 1:
                     self.__tela_adm.mostra_mensagem('Impossível excluir administrador',
                                                     'É necessário haver ao menos um administrador na máquina')
@@ -85,7 +85,7 @@ class ControladorAdministrador:
         admins = []
         for i in self.administradores.values():
             admins.append(i)
-        res = self.__tela_adm.alterar_administrador(admins)
+        res = self.__tela_adm.alterar_administrador(admins)  # Pega o adm a ser alterado, passando lista pra listbox
         if res is None:
             return
         if res[0] == 0:

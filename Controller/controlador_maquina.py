@@ -45,7 +45,7 @@ class ControladorMaquina:
             return None
         for i in self.__controlador_adm.administradores.values():
             if i.codigo == codigo and i.senha == senha:
-                while True:
+                while True:  # Permanece na tela da máquina
                     op = self.__tela_gerencia.opcoes_gerencia()
                     if op is None:
                         return None
