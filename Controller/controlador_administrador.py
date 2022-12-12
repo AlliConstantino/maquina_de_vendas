@@ -9,7 +9,7 @@ class ControladorAdministrador:
         self.__tela_adm = TelaAdm()
         self.__administradores = AdministradorDao()
         self.__controlador_maq = controlador_maquina
-        padrao = Administrador('Mano', 999, '0000')
+        padrao = Administrador('Admin', 999, '0000')
         if padrao.codigo not in self.administradores.keys():
             self.__administradores.add(padrao.codigo, padrao)
 
