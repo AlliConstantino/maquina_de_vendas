@@ -1,7 +1,6 @@
 from Model.produto import Produto
 from View.tela_produto import TelaProduto
-from DAO.dao import DAO
-from Model.produtoDAO import ProdutoDAO
+from DAO.produtoDAO import ProdutoDAO
 
 
 class ControladorProduto:

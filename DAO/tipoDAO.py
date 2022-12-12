@@ -1,5 +1,5 @@
 from dao import DAO
-from tipo import Tipo
+from Model.tipo import Tipo
 
 class TipoDAO(DAO):
     def __int__(self):
