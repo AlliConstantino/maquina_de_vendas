@@ -65,7 +65,7 @@ class ControladorAdministrador:
             return
         else:
             try:
-                codigo = (op[1]['lb_adm_exc'][0][1])  # Pegano código do dicionário
+                codigo = (op[1]['lb_adm_exc'][0][1])  # Pegando código do dicionário
                 if len(self.administradores) == 1:
                     self.__tela_adm.mostra_mensagem('Impossível excluir administrador',
                                                     'É necessário haver ao menos um administrador na máquina')
